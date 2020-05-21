@@ -1,3 +1,5 @@
+gst-launch-1.0 -v rtspsrc location=rtsp://192.168.100.19:8554/live drop-on-latency=true use-pipeline-clock=true do-retransmission=false latency=125 protocols=GST_RTSP_LOWER_TRANS_UDP ! rtph264depay ! h264parse ! avdec_h264 ! videorate ! video/x-raw, framerate=24/1 ! autovideosink sync=true
+
 # ros_rtsp
 ROS package to subscribe to an ROS Image topic (and as many other video sources as you want) and serve it up as a RTSP video feed with different mount points.
 Should provide a real-time video feed (or as close as possible).
